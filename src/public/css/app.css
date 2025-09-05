@@ -1,0 +1,95 @@
+/* デフォルト初期化 */
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0
+}
+
+/* レイアウトの幅を管理 */
+.container {
+    max-width: 1400px;
+    /* 最大幅 → PC要件の上限 */
+    min-width: 1200px;
+    /* 最小幅を固定して崩れを防ぐ */
+    margin: 0 auto;
+    /* 常に中央に表示 */
+    padding: 0 16px;
+    /* 左右に少し余白を確保 */
+}
+
+/* ===================== */
+/* ヘッダーのデザインここから */
+/* ===================== */
+
+/* ヘッダー全体 */
+.site-header {
+    background: #111;
+    /* 黒背景 */
+    color: #fff;
+}
+
+/* ヘッダー内の配置 */
+.header-inner {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* 左ロゴと右メニューを分ける */
+}
+
+/* ロゴ */
+.site-logo {
+    height: 28px;
+}
+
+/* 右側メニュー */
+.header-nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 16px;
+}
+
+/* === ヘッダー微調整 === */
+
+/* ロゴと検索＆メニューの間隔を少しだけ広げる */
+.header-inner {
+    gap: 24px;
+}
+
+/* 検索ボックスのサイズ */
+.search-input {
+    width: 520px;
+    /* 図面通りの横幅 */
+    height: 32px;
+    font-size: 14px;
+}
+
+/* 右側メニューを横並び＆サイズ感を統一 */
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+    /* 右寄せ */
+}
+
+.header-nav a {
+    font-size: 14px;
+    line-height: 32px;
+    /* 高さに合わせて中央寄せ */
+    padding: 0 8px;
+    /* 触りやすい余白 */
+    font-weight: 600;
+}
+
+/* 出品だけ枠ボタン風に少し目立たせる */
+.header-nav a.btn-sell {
+    border: 1px solid #fff;
+    border-radius: 6px;
+    padding: 0 12px;
+    line-height: 30px;
+}

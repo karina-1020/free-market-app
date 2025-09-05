@@ -1,0 +1,168 @@
+/* 2カラム */
+.purchase-container {
+    width: 1000px;
+    margin: 24px auto 60px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    /* 左右 */
+    gap: 32px;
+}
+
+/* 左ヘッダ（サムネ+テキスト）を2列 */
+.purchase-main .product-head {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* サムネ枠（灰色ボックスと同サイズ） */
+.purchase-main .thumb {
+    width: 120px;
+    height: 120px;
+    background: #eee;
+    /* 画像が無い時の背景 */
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 画像を枠にフィット */
+.purchase-main .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.purchase-main .title {
+    font-size: 20px;
+    margin: 0 0 6px;
+    font-weight: 700;
+}
+
+.purchase-main .price {
+    font-size: 16px;
+    margin: 0;
+}
+
+.sep {
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    margin: 20px 0;
+}
+
+.field {
+    margin: 16px 0;
+}
+
+.label {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.control select {
+    width: 260px;
+    height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #fff;
+}
+
+/* 配送先 */
+.shipping .link-edit {
+    float: right;
+    font-size: 12px;
+    color: #2d7fd0;
+    text-decoration: none;
+}
+
+.shipping .zip {
+    margin: 6px 0 0;
+}
+
+/* 右サマリーBOX */
+.purchase-aside {
+    border: none;
+    padding: 18px;
+    height: max-content;
+}
+
+.summary {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+}
+
+.summary th,
+.summary td {
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+    font-size: 14px;
+}
+
+.summary th {
+    width: 40%;
+    background: #fafafa;
+    text-align: left;
+}
+
+/* 購入ボタン */
+.btn-buy {
+    width: 100%;
+    height: 40px;
+    background: #e85a5a;
+    /* 既存トーンの赤 */
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-buy:hover {
+    opacity: .9;
+}
+
+/* 住所変更ページ共通（細めのカード） */
+.purchase-container.narrow {
+    width: 560px;
+    grid-template-columns: 1fr;
+}
+
+.address-card {
+    background: #fff;
+    padding: 24px 24px 16px;
+}
+
+.address-title {
+    font-size: 20px;
+    margin: 0 0 16px;
+}
+
+.address-card .field {
+    margin: 14px 0;
+}
+
+.address-card .label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.address-card .input {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 0 10px;
+    background: #fff;
+}
+
+.btn-buy {
+    /* 住所更新ボタンも同じ見た目に */
+    margin-top: 16px;
+}

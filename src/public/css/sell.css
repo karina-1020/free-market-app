@@ -1,0 +1,167 @@
+/* ===========================
+   出品ページ（auth.cssと同テイスト）
+   ・幅560pxの白カード
+   ・入力は高さ36px
+   ・赤ボタンは横幅100%
+   =========================== */
+
+/* ページ余白 */
+.sell-wrap {
+    padding: 40px 0;
+}
+
+/* 中央の白カード（auth-card相当） */
+.sell-card {
+    width: 560px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px 48px;
+    box-sizing: border-box;
+}
+
+/* ページ見出し */
+.sell-title {
+    text-align: center;
+    font-size: 18px;
+    margin: 0 0 24px;
+    font-weight: 700;
+}
+
+/* セクション見出し（「商品画像」「商品の詳細」など） */
+.sec-title {
+    font-weight: 700;
+    margin: 24px 0 12px;
+}
+
+/* うすい区切り線 */
+.divider {
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    margin: 24px 0;
+}
+
+/* ラベル（authと同じ雰囲気） */
+.field-label {
+    display: block;
+    font-size: 13px;
+    margin: 12px 0 6px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* テキスト系入力の共通（authのinput相当） */
+.input,
+.textarea,
+.select {
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #e2e2e2;
+    border-radius: 2px;
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.textarea {
+    height: 120px;
+    padding: 10px;
+    resize: vertical;
+}
+
+/* 画像アップ枠 */
+.upload-box {
+    border: 1px solid #dcdcdc;
+    background: #f8f8f8;
+    height: 140px;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+    margin-top: 8px;
+}
+
+.upload-input {
+    display: none;
+}
+
+.upload-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid #f04b4b;
+    color: #f04b4b;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* カテゴリのピル */
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pill input {
+    display: none;
+}
+
+.pill span {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    border-radius: 999px;
+    border: 1px solid #f04b4b;
+    color: #f04b4b;
+    background: #fff;
+}
+
+.pill input:checked+span {
+    background: #f04b4b;
+    color: #fff;
+}
+
+/* 価格の行：￥ + input */
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.currency {
+    width: 24px;
+    text-align: center;
+    font-weight: 700;
+    color: #555;
+}
+
+.input.price {
+    flex: 1;
+}
+
+/* エラーテキスト */
+.err {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #d33;
+}
+
+/* 送信ボタン（auth-btn相当） */
+.actions {
+    margin-top: 20px;
+}
+
+.sell-btn {
+    width: 100%;
+    height: 36px;
+    background: #f04b4b;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sell-btn:hover {
+    opacity: .9;
+}
