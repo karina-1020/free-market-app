@@ -16,20 +16,29 @@
             @csrf
 
             {{-- ユーザー名 --}}
-            <label for="name">ユーザー名</label>
-            <input id="name" type="text" name="name" autocomplete="name">
+            <label for="name">お名前</label>
+<input id="name" type="text" name="name" autocomplete="name" value="{{ old('name') }}">
+@error('name')
+  <p class="error">{{ $message }}</p>
+@enderror
 
             {{-- メールアドレス --}}
-            <label for="email">メールアドレス</label>
-            <input id="email" type="email" name="email" autocomplete="email">
-
+           <label for="email">メールアドレス</label>
+<input id="email" type="email" name="email" autocomplete="email" value="{{ old('email') }}">
+@error('email')
+  <p class="error">{{ $message }}</p>
+@enderror
+            
             {{-- パスワード --}}
             <label for="password">パスワード</label>
-            <input id="password" type="password" name="password" autocomplete="new-password">
+<input id="password" type="password" name="password" autocomplete="new-password">
+@error('password')
+  <p class="error">{{ $message }}</p>
+@enderror
 
             {{-- 確認用パスワード --}}
             <label for="password_confirmation">確認用パスワード</label>
-            <input id="password_confirmation" type="password" name="password_confirmation" autocomplete="new-password">
+<input id="password_confirmation" type="password" name="password_confirmation" autocomplete="new-password">
 
             {{-- 登録ボタン（auth専用デザイン） --}}
             <button type="submit" class="auth-btn">登録する</button>

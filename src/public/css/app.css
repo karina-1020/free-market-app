@@ -93,3 +93,13 @@ body {
     padding: 0 12px;
     line-height: 30px;
 }
+
+.error {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #d93025;
+}
+
+.invalid {
+    border-color: #d93025;
+}
