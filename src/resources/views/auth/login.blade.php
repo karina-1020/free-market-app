@@ -17,11 +17,17 @@
 
             {{-- メールアドレス --}}
             <label for="email">メールアドレス</label>
-            <input id="email" type="email" name="email" autocomplete="email">
+            <input id="email" type="text" name="email" autocomplete="email" value="{{ old('email') }}">
+            @error('email')
+            <p class="error">{{ $message }}</p>
+            @enderror
 
             {{-- パスワード --}}
             <label for="password">パスワード</label>
             <input id="password" type="password" name="password" autocomplete="current-password">
+            @error('password')
+            <p class="error">{{ $message }}</p>
+            @enderror
 
             {{-- ログインボタン（auth専用デザイン） --}}
             <button type="submit" class="auth-btn">ログインする</button>
