@@ -10,3 +10,10 @@ cp .env.example .env　環境変数を変更
 php artisan key:generate
 php artisan migrate
 php artisan db:seed
+
+
+以下の内容でログインが可能
+ユーザー名：こめむぎ
+メールアドレス：
+パスワード：komemugi29
+

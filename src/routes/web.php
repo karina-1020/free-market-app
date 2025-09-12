@@ -16,7 +16,11 @@ use App\Models\Product;
 Route::get('/', [ProductsController::class, 'index'])->name('items.index');
 
 // PG05 商品詳細
-Route::get('/item/{item}', [ProductsController::class, 'show'])->name('items.show');
+Route::get('/item/{product}', [ProductsController::class, 'show'])
+    ->name('items.show');   
+
+Route::post('/item/{product}/comments', [CommentsController::class, 'store'])
+    ->name('items.comments.store');
 
 Route::middleware('auth')->group(function () {
     // 購入確認画面

@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
-    // コメント投稿処理（PG05内で使用）
-    public function store(Request $request, $item)
-    {
-        // 後で CommentsStoreRequest を使ってバリデーション & 保存を実装
-        // いまは画面遷移の確認だけ
-        return back()->with('status', 'コメント送信処理（仮）');
-    }
+    public function store(Request $request, \App\Models\Product $product)
+{
+    $data = $request->validate([
+        'body' => ['required','string','max:500'],
+    ]);
+
+    $product->comments()->create([
+        'body' => $data['content'],
+        'user_id' => auth()->id(), 
+    ]);
+
+    return back()->with('status', 'コメントを追加しました。');
+}
 }

@@ -36,36 +36,34 @@
             <h2 class="sec-title">商品の情報</h2>
             <div class="pills">
                 <p><strong>カテゴリー</strong>
-                    < class="pill">{{ $product->category->name ?? '未設定' }}
+                    <class="pill">{{ $product->category->name ?? '未設定' }}
                 </p>
                 <p><strong>商品の状態</strong> {{ $product->condition ?? '未設定' }}</p>
             </div>
 
 
-            {{-- ここからコメント --}}
-            <h2 class="sec-title">コメント（{{ $product->comments->count() ?? 0 }}）</h2>
+           <h2 class="sec-title">コメント（{{ $product->comments->count() ?? 0 }}）</h2>
 
-            <div class="comment-list">
-                @forelse($product->comments as $comment)
-                <div class="comment">
-                    <div class="comment-avatar"></div>
-                    <div class="comment-body">
-                        <div class="comment-name">{{ $comment->user->name ?? 'admin' }}</div>
-                        <div class="comment-bubble">{{ $comment->body }}</div>
-                    </div>
-                </div>
-                @empty
-                <p class="comment-empty">まだコメントはありません</p>
-                @endforelse
-            </div>
+<div class="comment-list">
+  @forelse($product->comments as $comment)
+    <div class="comment">
+      <div class="comment-avatar"></div>
+      <div class="comment-body">
+        <div class="comment-name">{{ $comment->user->name ?? 'guest' }}</div>
+        <div class="comment-bubble">{{ $comment->body }}</div>
+      </div>
+    </div>
+  @empty
+    <p class="comment-empty">まだコメントはありません</p>
+  @endforelse
+</div>
 
-            <h3 class="sec-title">商品へのコメント</h3>
-            <form action="#" method="post" class="comment-form">
-                @csrf
-                <textarea name="body" placeholder="こちらにコメントを入力してください"></textarea>
-                <button type="submit" class="detail-btn">コメントを送信する</button>
-            </form>
-            {{-- コメントここまで --}}
+<h3 class="sec-title">商品へのコメント</h3>
+<form action="{{ route('items.comments.store', $product) }}" method="post" class="comment-form">
+  @csrf
+  <textarea name="body" placeholder="こちらにコメントをご入力ください" rows="3" required>{{ old('body') }}</textarea>
+  <button type="submit" class="detail-btn">コメントを送信する</button>
+</form>
         </div>
     </section>
 </div>
