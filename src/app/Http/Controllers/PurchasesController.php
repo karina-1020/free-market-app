@@ -20,8 +20,26 @@ class PurchasesController extends Controller
     }
 
     public function store(Product $product)
-    {
-        // 購入確定処理（ダミーでOK）
-        return redirect()->route('mypage.index')->with('flash', '購入が完了しました');
+{
+    // ① すでにSOLDなら処理しない
+    if ($product->is_sold) {
+        return redirect()->back()->with('error', 'この商品はすでに購入されています。');
     }
+
+    // ② 商品を購入済みに更新
+    $product->is_sold = true;
+    $product->save();
+
+    // ③ 購入履歴テーブルに保存（必要なら）
+    // Purchase::create([
+    //     'user_id' => auth()->id(),
+    //     'product_id' => $product->id,
+    //     'status' => 'paid',
+    // ]);
+
+    // ④ リダイレクト
+    return redirect()
+        ->route('mypage.index')
+        ->with('flash', '購入が完了しました');
+}
 }

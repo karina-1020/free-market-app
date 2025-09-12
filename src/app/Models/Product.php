@@ -9,6 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
+    public function isSold(): bool
+    {
+        return (bool) $this->is_sold; // カラム is_sold をチェック
+    }
+
     // 複数代入を許可するカラム
     protected $fillable = [
         'user_id',
@@ -61,5 +66,5 @@ class Product extends Model
     {
         return $this->hasMany(Mylist::class);
     
-}
+    }
 }

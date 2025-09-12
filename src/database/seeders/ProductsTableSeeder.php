@@ -26,6 +26,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . 'Armani+Mens+Clock.jpg',
                 'cond' => '良好',
                 'cat'  => 'ファッション',
+                'is_sold' => rand(0,1),
             ],
             [
                 'name' => 'HDD',
@@ -35,6 +36,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . 'HDD+Hard+Disk.jpg',
                 'cond' => '目立った傷や汚れなし',
                 'cat'  => 'PC・スマホ',
+                'is_sold' => rand(0,1),
             ],
             [
                 'name' => '玉ねぎ3束',
@@ -44,6 +46,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . 'iLoveIMG+d.jpg',
                 'cond' => 'やや傷や汚れあり',
                 'cat'  => '生活雑貨',
+                'is_sold' => rand(0,1),
             ],
             [
                 'name' => '革靴',
@@ -53,7 +56,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . 'Leather+Shoes+Product+Photo.jpg',
                 'cond' => '状態が悪い',
                 'cat'  => 'ファッション',
-            ],
+            ],  'is_sold' => rand(0,1),
             [
                 'name' => 'ノートPC',
                 'price' => 45000,
@@ -62,6 +65,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . 'Living+Room+Laptop.jpg',
                 'cond' => '美品',
                 'cat'  => 'PC・スマホ',
+                'is_sold' => rand(0,1), 
             ],
             [
                 'name' => 'マイク',
@@ -71,6 +75,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . 'Music+Mic+4632231.jpg',
                 'cond' => '良好',
                 'cat'  => 'ホビー',
+                'is_sold' => rand(0,1), 
             ],
             [
                 'name' => 'ショルダーバッグ',
@@ -80,6 +85,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . 'Purse+fashion+pocket.jpg',
                 'cond' => '目立った傷や汚れなし',
                 'cat'  => 'ファッション',
+                'is_sold' => rand(0,1), 
             ],
             [
                 'name' => 'タンブラー',
@@ -89,6 +95,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . 'Tumbler+souvenir.jpg',
                 'cond' => 'やや傷や汚れあり',
                 'cat'  => '生活雑貨',
+                'is_sold' => rand(0,1), 
             ],
             [
                 'name' => 'コーヒーミル',
@@ -98,6 +105,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . 'Waitress+with+Coffee+Grinder.jpg',
                 'cond' => '良好',
                 'cat'  => '生活雑貨',
+                'is_sold' => rand(0,1), 
             ],
             [
                 'name' => 'メイクセット',
@@ -107,6 +115,7 @@ class ProductsTableSeeder extends Seeder
                 'img' => $base . '%E5%A4%96%E5%87%BA%E3%83%A1%E3%82%A4%E3%82%AF%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%82%BB%E3%83%83%E3%83%88.jpg',
                 'cond' => '目立った傷や汚れなし',
                 'cat'  => '生活雑貨',
+                'is_sold' => rand(0,1), 
             ],
         ];
         $cats = Category::all()->keyBy('name');

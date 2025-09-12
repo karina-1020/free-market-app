@@ -11,10 +11,8 @@ body {
 
 /* レイアウトの幅を管理 */
 .container {
-    max-width: 1400px;
+    max-width: 1512px;
     /* 最大幅 → PC要件の上限 */
-    min-width: 1200px;
-    /* 最小幅を固定して崩れを防ぐ */
     margin: 0 auto;
     /* 常に中央に表示 */
     padding: 0 16px;
@@ -30,6 +28,10 @@ body {
     background: #111;
     /* 黒背景 */
     color: #fff;
+    position: sticky;
+        /* スクロールしても上に“貼り付く” */
+        top: 0;
+        z-index: 1000;
 }
 
 /* ヘッダー内の配置 */
