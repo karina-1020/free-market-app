@@ -1,0 +1,4 @@
+
+# MySQL data (Docker)
+docker/mysql/data/
+docker/mysql/logs/
