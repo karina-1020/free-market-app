@@ -137,7 +137,6 @@ class ProductsTableSeeder extends Seeder
              'img_url'     => $product['img'],
              'condition'   => $product['cond'],
              'is_sold'     => $product['is_sold'],   
-             'status'      => 'for_sale',
              ]
             );
         }

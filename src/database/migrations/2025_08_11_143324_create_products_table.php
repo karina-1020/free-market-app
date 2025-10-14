@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
                 $table->text('description')->nullable(); // 商品説明
                 $table->string('img_url');       // 画像URL
                 $table->string('condition');     // コンディション
-                $table->string('status')->default('for_sale'); // 状態 (for_sale / sold)
+                $table->boolean('is_sold')->default(false);                
                 $table->timestamps();
             });
     }
