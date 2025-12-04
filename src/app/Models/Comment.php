@@ -8,27 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
-
-    // 複数代入可能なカラムを指定
+    
     protected $fillable = [
         'user_id',
-        'product_id',
-        'body',
+        'item_id', 
+        'comment'
     ];
 
-    /**
-     * コメントを投稿したユーザー
-     */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\Models\User');
     }
 
-    /**
-     * コメントが紐づく商品
-     */
-    public function product()
+    public function item()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo('App\Models\Item');
     }
 }

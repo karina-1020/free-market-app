@@ -14,12 +14,10 @@ class CreateLikesTable extends Migration
     public function up()
     {
         Schema::create('likes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');   // ユーザーID
-            $table->foreignId('product_id')->constrained()->onDelete('cascade'); // 商品ID
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('item_id')->constrained()->cascadeOnDelete();
+            $table->unique(['user_id', 'item_id']);
             $table->timestamps();
-
-            $table->unique(['user_id', 'product_id']); // 同じ人が同じ商品に重複していいねできない
         });
     }
 

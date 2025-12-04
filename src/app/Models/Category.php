@@ -8,15 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'category'
+    ];
 
-    // 複数代入の保護を外す場合
-    protected $fillable = ['name'];
-
-    /**
-     * このカテゴリーに属する商品 (Product) を取得
-     */
-    public function products()
+    public function categoryItem()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany('App\Models\CategoryItem');
     }
 }

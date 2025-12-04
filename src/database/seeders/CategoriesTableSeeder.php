@@ -2,31 +2,40 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Category;
+use Illuminate\Database\Seeder;
 
 class CategoriesTableSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
     public function run()
     {
-        $names = [
-            '本',
-            'メンズ',
-            'レディース',
-            '家電',
-            'スポーツ',
-            'アウトドア',
-            'コスメ',
-            '家具',
-            'おもちゃ',
-            '生活雑貨',
-            'PC・スマホ',
-            'ホビー',
+        $params = [
             'ファッション',
+            '家電',
+            'インテリア',
+            'レディース',
+            'メンズ',
+            'コスメ',
+            '本',
+            'ゲーム',
+            'スポーツ',
+            'キッチン',
+            'ハンドメイド',
+            'アクセサリー',
+            'おもちゃ',
+            'ベビー・キッズ',
         ];
 
-        foreach ($names as $n) {
-            Category::firstOrCreate(['name' => $n]);
+        $range = count($params);
+        for ($i = 0 ; $i < $range ; $i++){
+            Category::create([
+                'category' => $params[$i],
+            ]);
         }
     }
 }

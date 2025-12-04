@@ -8,64 +8,57 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    //  Address（1対1）
-    public function address()
+    public function profile()
     {
-        return $this->hasOne(Address::class);
+        return $this->hasOne('App\Models\Profile');
     }
 
-    //  Products（1対多 = 出品商品）
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
-
-    //  Orders（1対多 = 購入履歴）
-    public function orders()
-    {
-        return $this->hasMany(Order::class);
-    }
-
-    //  Likes（1対多）
     public function likes()
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany('App\Models\Like');
     }
 
-    //  Comments（1対多）
     public function comments()
     {
-        return $this->hasMany(Comment::class);
-    }
+        return $this->hasMany('App\Models\Comment');
+    }  
 
-    //  MyLists（1対多）
-    public function mylists()
+    public function items()
     {
-        return $this->hasMany(Mylist::class);
-    }
-
-    //  Payments（1対多）
-    public function payments()
-    {
-        return $this->hasMany(Payment::class);
-    }
+        return $this->hasMany('App\Models\Item');
+    }  
 }

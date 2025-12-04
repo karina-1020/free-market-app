@@ -1,168 +1,114 @@
-/* 2カラム */
-.purchase-container {
-    width: 1000px;
-    margin: 24px auto 60px;
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    /* 左右 */
-    gap: 32px;
-}
-
-/* 左ヘッダ（サムネ+テキスト）を2列 */
-.purchase-main .product-head {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 20px;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-/* サムネ枠（灰色ボックスと同サイズ） */
-.purchase-main .thumb {
-    width: 120px;
-    height: 120px;
-    background: #eee;
-    /* 画像が無い時の背景 */
-    border: 1px solid #ddd;
+.buy {
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+}
+
+.buy__left {
+    width: 45%;
+}
+
+.buy__right {
+    width: fit-content;
+}
+
+.item {
+    display: flex;
+}
+
+.item__img {
+    width: 120px;
+    height: 150px;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    margin-right: 60px;
+    display: flex;
     justify-content: center;
-    overflow: hidden;
+    align-items: center;
 }
 
-/* 画像を枠にフィット */
-.purchase-main .thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.item__name {
+    font-size: 24px;
 }
 
-.purchase-main .title {
+.item__price {
     font-size: 20px;
-    margin: 0 0 6px;
-    font-weight: 700;
+    margin-top: 30px;
 }
 
-.purchase-main .price {
-    font-size: 16px;
-    margin: 0;
+.purchases {
+    margin-top: 50px;
 }
 
-.sep {
-    border: 0;
-    border-top: 1px solid #e5e5e5;
-    margin: 20px 0;
+.purchase {
+    border-top: 1px solid #5F5F5F;
+    border-bottom: 1px solid #5F5F5F;
+    padding: 30px;
 }
 
-.field {
-    margin: 16px 0;
+.purchase:first-child {
+    border-bottom: none;
 }
 
-.label {
-    font-size: 13px;
-    color: #333;
-    margin-bottom: 8px;
-    font-weight: 600;
+.purchase__flex {
+    display: flex;
+    justify-content: space-between;
 }
 
-.control select {
-    width: 260px;
-    height: 32px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    background: #fff;
+#purchase__update {
+    color: #0073CC;
 }
 
-/* 配送先 */
-.shipping .link-edit {
-    float: right;
-    font-size: 12px;
-    color: #2d7fd0;
-    text-decoration: none;
+.purchase__value {
+    padding: 40px 50px;
 }
 
-.shipping .zip {
-    margin: 6px 0 0;
-}
-
-/* 右サマリーBOX */
-.purchase-aside {
+.input_destination {
     border: none;
-    padding: 18px;
-    height: max-content;
+    padding: 10px 0;
+    margin-bottom: 10px;
 }
 
-.summary {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 18px;
+.setting__flex {
+    display: flex;
+    justify-content: end;
 }
 
-.summary th,
-.summary td {
-    border: 1px solid #ccc;
-    padding: 10px 12px;
-    font-size: 14px;
+#destination__setting {
+    display: none;
 }
 
-.summary th {
-    width: 40%;
-    background: #fafafa;
-    text-align: left;
+.buy__info table {
+    width: 450px;
+    margin-bottom: 60px;
 }
 
-/* 購入ボタン */
-.btn-buy {
-    width: 100%;
-    height: 40px;
-    background: #e85a5a;
-    /* 既存トーンの赤 */
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-weight: 700;
-    cursor: pointer;
+.buy__info tr {
+    border: 1px solid #5F5F5F;
 }
 
-.btn-buy:hover {
-    opacity: .9;
+.buy__info th,
+.buy__info td {
+    width: 50%;
+    height: 100px;
+    padding: 50px;
 }
 
-/* 住所変更ページ共通（細めのカード） */
-.purchase-container.narrow {
-    width: 560px;
-    grid-template-columns: 1fr;
-}
+@media (min-width: 768px) and (max-width: 850px) {
+    .buy__right {
+        width: 45%;
+    }
 
-.address-card {
-    background: #fff;
-    padding: 24px 24px 16px;
-}
+    .buy__info table {
+        width: 100%;
+    }
 
-.address-title {
-    font-size: 20px;
-    margin: 0 0 16px;
-}
+    #purchase_btn {
+        width: 100%;
+    }
 
-.address-card .field {
-    margin: 14px 0;
-}
-
-.address-card .label {
-    display: block;
-    margin-bottom: 6px;
-}
-
-.address-card .input {
-    width: 100%;
-    height: 36px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    padding: 0 10px;
-    background: #fff;
-}
-
-.btn-buy {
-    /* 住所更新ボタンも同じ見た目に */
-    margin-top: 16px;
+    .table__header,
+    .table__data {
+        padding: unset !important;
+        vertical-align: middle;
+    }
 }

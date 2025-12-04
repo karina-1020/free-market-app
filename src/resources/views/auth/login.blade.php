@@ -1,42 +1,35 @@
-@extends('layouts.app')
+@extends('layouts.default')
 
+<!-- タイトル -->
+@section('title','ログイン')
+
+<!-- css読み込み -->
 @section('css')
-{{-- 認証ページ専用CSSを読み込み --}}
-<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/authentication.css')  }}">
 @endsection
 
+<!-- 本体 -->
 @section('content')
-<div class="auth-wrap">
-    <div class="auth-card">
-        {{-- タイトル --}}
-        <h1 class="auth-title">ログイン</h1>
 
-        {{-- フォーム本体 --}}
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            {{-- メールアドレス --}}
-            <label for="email">メールアドレス</label>
-            <input id="email" type="text" name="email" autocomplete="email" value="{{ old('email') }}">
-            @error('email')
-            <p class="error">{{ $message }}</p>
-            @enderror
-
-            {{-- パスワード --}}
-            <label for="password">パスワード</label>
-            <input id="password" type="password" name="password" autocomplete="current-password">
-            @error('password')
-            <p class="error">{{ $message }}</p>
-            @enderror
-
-            {{-- ログインボタン（auth専用デザイン） --}}
-            <button type="submit" class="auth-btn">ログインする</button>
-        </form>
-
-        {{-- 下のリンク：会員登録へ --}}
-        <div class="auth-sub">
-            <a href="{{ route('register') }}">会員登録はこちら</a>
-        </div>
+@include('components.header')
+<form action="/login" method="post" class="authenticate center">
+    @csrf
+    <h1 class="page__title">ログイン</h1>
+    <label for="mail" class="entry__name">メールアドレス</label>
+    <input name="email" id="mail" type="email" class="input" value="{{ old('email') }}">
+    <div class="form__error">
+        @error('email')
+        {{ $message }}
+        @enderror
     </div>
-</div>
+    <label for="password" class="entry__name">パスワード</label>
+    <input name="password" id="password" type="password" class="input">
+    <div class="form__error">
+        @error('password')
+        {{ $message }}
+        @enderror
+    </div>
+    <button class="btn btn--big">ログインする</button>
+    <a href="/register" class="link">会員登録はこちら</a>
+</form>
 @endsection

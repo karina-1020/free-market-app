@@ -15,18 +15,10 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-
-            // 紐付け（削除時は一緒に消える想定）
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
-
-            // コメント本文（必須・最大255）
-            $table->string('body', 255);
-
+            $table->foreignId('item_id')->constrained()->cascadeOnDelete();
+            $table->string('comment');
             $table->timestamps();
-
-            // 一覧表示で使うかもしれないのでインデックス
-            $table->index(['product_id', 'created_at']);
         });
     }
 

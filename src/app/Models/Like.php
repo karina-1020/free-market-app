@@ -4,29 +4,34 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Like extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = ['user_id', 'item_id'];
+    
+    public $incrementing = false;
+
     protected $fillable = [
         'user_id',
-        'product_id',
+        'item_id', 
     ];
 
-    /**
-     * いいねをしたユーザー
-     */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\Models\User');
     }
 
-    /**
-     * いいねされた商品
-     */
-    public function product()
+    public function item()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo('App\Models\Item');
+    }
+
+    public function liked($item_id)
+    {
+        $count = Like::where('item_id', $item_id)->where('user_id', Auth::id())->count();
+        return $count > 0;
     }
 }
